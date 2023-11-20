@@ -1,0 +1,18 @@
+
+<h1>
+  Witaj w naszej aplikacji!
+</h1>
+<h3>Tu znajdziesz wszystkie najważniejsze kontakty</h3>
+<nav>
+  <a class="button" routerLink="/contact-list" routerLinkActive="activebutton">Lista kontaktów</a>
+  <a class="button" routerLink="/login" routerLinkActive="activebutton">Zaloguj się</a>
+
+  <ng-container *ngIf="isLogged">
+    <a class="button" routerLink="/add-new-contact" routerLinkActive="activebutton">Dodaj nowy kontakt</a>
+  </ng-container>
+
+  <a class="button" routerLink="/add-new-contact" routerLinkActive="activebutton">Dodaj kontakt</a>
+  <a class="button" routerLink="/add-delete-contact" routerLinkActive="activebutton">Usuń kontakt</a>
+
+</nav>
+<router-outlet></router-outlet>

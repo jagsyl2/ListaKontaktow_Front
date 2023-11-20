@@ -1,0 +1,11 @@
+<h3>Lista kontaktów:</h3>
+<div class="user-list" *ngIf="People.length > 0">
+  <div class="user-row" *ngFor="let person of People">
+    <p>{{person.name + ' ' + person.surname}}</p>
+      <button class="button" (click)="displayDetails(person)">Wyświetl</button>
+      <div *ngIf="display && selectedPerson.id === person.id">
+        <p>{{person.name + ' ' + person.surname + '; e-mail: ' + person.email + '; hasło: ***' +  '; kategoria: ' + person.category.name +
+        ';  Podkategoria: ' + person.userSubcategory + ', tel: ' + person.phoneNumber + '; data urodzenia: ' + person.BirthDate}}</p>
+      </div>
+  </div>
+</div>

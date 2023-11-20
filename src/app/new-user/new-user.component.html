@@ -1,0 +1,30 @@
+<h2>Dodaj użytkownika:</h2>
+<form [formGroup]="userForm" (ngSubmit)="submitNewUserForm()">
+  <div>
+    <label for="email">E-mail</label>
+    <input type="text" name="email" id="email" formControlName="email">
+  </div>
+
+  <div *ngFor="let validation of validation_messages.email">
+    <p *ngIf="email?.hasError(validation.type) && (email?.dirty || email?.touched)">
+      {{validation.message}}
+    </p>
+  </div>
+
+  <div>
+    <label for="password">Hasło</label>
+    <input type="text" name="password" id="password" formControlName="password">
+  </div>
+
+  <div *ngFor="let validation of validation_messages.password">
+    <p *ngIf="password?.hasError(validation.type) && (password?.dirty || password?.touched)">
+      {{validation.message}}
+    </p>
+  </div>
+
+  <div>
+    <button type="submit">Zarejestruj się</button>
+  </div>
+</form>
+
+

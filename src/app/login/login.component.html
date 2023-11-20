@@ -1,0 +1,34 @@
+<h2>Zaloguj się:</h2>
+<form [formGroup]="loginForm" (ngSubmit)="submitLoginForm()">
+  <div>
+    <label for="email">E-mail</label>
+    <input type="text" name="email" id="email" formControlName="email">
+  </div>
+
+  <div *ngFor="let validation of validation_messages.email">
+    <p *ngIf="email?.hasError(validation.type) && (email?.dirty || email?.touched)">
+      {{validation.message}}
+    </p>
+  </div>
+
+  <div>
+    <label for="password">Hasło</label>
+    <input type="text" name="surnapasswordme" id="password" formControlName="password">
+  </div>
+
+  <div *ngFor="let validation of validation_messages.password">
+    <p *ngIf="password?.hasError(validation.type) && (password?.dirty || password?.touched)">
+      {{validation.message}}
+    </p>
+  </div>
+
+  <div>
+    <button type="submit">Zaloguj się</button>
+  </div>
+</form>
+
+<a class="button" routerLink="/add-new-user" routerLinkActive="activebutton">Zarejestruj się</a>
+
+<div>
+  <button (click)="logOut()">Wyloguj się</button>
+</div>

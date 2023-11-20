@@ -1,0 +1,76 @@
+<h2>Dodaj kontakt:</h2>
+<form [formGroup]="contactForm" (ngSubmit)="submitNewContactForm()">
+  <div>
+    <label for="name">Imię</label>
+    <input type="text" name="name" id="name" formControlName="name">
+  </div>
+
+  <div *ngFor="let validation of validation_messages.name">
+    <p *ngIf="name?.hasError(validation.type) && (name?.dirty || name?.touched)">
+      {{validation.message}}
+    </p>
+  </div>
+
+  <div>
+    <label for="surname">Nazwisko</label>
+    <input type="text" name="surname" id="surname" formControlName="surname">
+  </div>
+
+  <div *ngFor="let validation of validation_messages.surname">
+    <p *ngIf="surname?.hasError(validation.type) && (surname?.dirty || surname?.touched)">
+      {{validation.message}}
+    </p>
+  </div>
+
+  <div>
+    <label for="email">E-mail</label>
+    <input type="text" name="email" id="email" formControlName="email">
+  </div>
+
+  <div *ngFor="let validation of validation_messages.email">
+    <p *ngIf="email?.hasError(validation.type) && (email?.dirty || email?.touched)">
+      {{validation.message}}
+    </p>
+  </div>
+
+  <div>
+    <label for="password">Hasło</label>
+    <input type="text" name="password" id="password" formControlName="password">
+  </div>
+
+  <div *ngFor="let validation of validation_messages.password">
+    <p *ngIf="password?.hasError(validation.type) && (password?.dirty || password?.touched)">
+      {{validation.message}}
+    </p>
+  </div>
+
+  <div>
+    <label for="category">Kategoria</label>
+  <select [(ngModel)]="categoryId">
+    <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+  </select>
+  <p>wybrana kategoria: {{categoryId}}</p>
+  </div>
+
+  <div>
+    <label for="subcategory">Podkategoria</label>
+  <select [(ngModel)]="subcategoryName">
+    <option *ngFor="let subcategory of subcategories" [value]="subcategory.name">{{subcategory.name}}</option>
+  </select>
+  </div>
+
+  <div>
+    <label for="phoneNumber">Nr telefonu</label>
+    <input type="text" name="phoneNumber" id="phoneNumber" formControlName="phoneNumber">
+  </div>
+
+  <div>
+    <label for="birthDate">Data urodzenia</label>
+    <input type="date" [(ngModel)]="birthDate">
+  </div>
+
+
+  <div>
+    <button type="submit">Dodaj</button>
+  </div>
+</form>
